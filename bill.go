@@ -26,7 +26,7 @@ func (b bill) format() string {
 
 	// list items
 	for k, v := range b.items {
-		fs += fmt.Sprintf("%-25v ....... UGX%v \n", k+":", v)
+		fs += fmt.Sprintf("%-25v ...... UGX%v \n", k+":", v)
 		total += v
 	}
 
@@ -35,4 +35,8 @@ func (b bill) format() string {
 	fs += fmt.Sprintf("%-25v ...... UGX%0.2f", "Total:", total)
 
 	return fs
+}
+
+func (b *bill) addItem(name string, price float64) {
+	b.items[name] = price
 }
